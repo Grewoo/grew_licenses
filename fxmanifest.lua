@@ -3,9 +3,9 @@ lua54 'yes'
 game 'gta5'
 
 
-description ''
+description 'Licenses System for FiveM'
 author 'Grewo'
-version '0.0.0'
+version '1.0.0'
 
 shared_script {
 	'@es_extended/imports.lua',
@@ -14,32 +14,30 @@ shared_script {
 
 
 server_scripts {
-	--'@oxmysql/lib/MySQL.lua', -- TODO
+	'@oxmysql/lib/MySQL.lua',
 
 	'locales/en.lua',
 
 	'config.lua',
 
+	'server/sv_get.lua',
+	'server/sv_add.lua',
+	'server/sv_has.lua',
 	'server/server.lua',
 	'checkVersion.lua',
 }
 
-client_scripts {
-	--'@NativeUILua/NativeUI.lua', -- TODO
-
-	'locales/en.lua',
-
-	'config.lua',
-
-	'client/client.lua',
-}
-
 dependency {
 	'es_extended',
-	--'oxmysql', -- TODO
-	--'NativeUILua', -- TODO
-	--'zf_dialog', -- TODO
-	--'swt_notifications', -- TODO
+	'oxmysql',
+}
+
+server_export {
+	'getUserLicenses',
+	'getLicenses',
+	'hasLicenses',
+	'hasLicenses',
+	'addUserLicense',
 }
 
 escrow_ignore {
