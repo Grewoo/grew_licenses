@@ -11,4 +11,11 @@ Citizen.CreateThread(function()
         ") ENGINE = InnoDB DEFAULT CHARSET=latin1;",
         {}, function(rowsChanged) end
     )
+    MySQL.Async.execute(
+        "CREATE TABLE IF NOT EXISTS `licenses` (" ..
+        "`type` VARCHAR(50) NOT NULL ," ..
+        "`lable` VARCHAR(50) NOT NULL " ..
+        ") ENGINE = InnoDB DEFAULT CHARSET=latin1;",
+        {}, function(rowsChanged) end
+    )
 end)
